@@ -1,4 +1,4 @@
-# FastApi MondoDB Projetc-Template
+# FastApi MongoDB Projetc-Template
 
 ## description
 
