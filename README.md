@@ -1,12 +1,12 @@
-# FastApi MongoDB Projetc-Template
+# FastApi MongoDB Project-Template
 
 ## description
 
-This template can be used as base project template if rest-api with mongo db is required.
+This template can be used as base project template if rest-api with mongo db is required. Deployment is docker based.
 
 ---
 
-## project structure (only important folders and files)
+## project structure
 
 - src (python code)
   - config (app configs)
@@ -31,19 +31,19 @@ Execute the commands on the same folder level where the docker-compose file is l
 
 (run first time container are build, next time run this command container will not be build)
 
-```
+```sh
 docker-compose up
 ```
 
 ### rebuild container:
 
-```
+```sh
 docker-compose build --no-cache
 ```
 
 ### run after rebuild:
 
-```
+```sh
 docker-compose down && docker-compose up
 ```
 
