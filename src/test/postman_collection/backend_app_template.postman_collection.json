@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "01c5ac9c-2db6-45ec-8fb1-8316ecc68d20",
+		"name": "backend_app_template",
+		"description": "postman collection for calling REST endpoints of fastapi backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "db access",
+			"item": [
+				{
+					"name": "get all students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/student/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"student",
+								""
+							]
+						},
+						"description": "get all students from db"
+					},
+					"response": []
+				},
+				{
+					"name": "add a new student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullname\": \"Max Mustermann\",\r\n  \"email\": \"max-muster@uni.com\",\r\n  \"course_of_study\": \"IT\",\r\n  \"year\": 2\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/student/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"student",
+								""
+							]
+						},
+						"description": "add new student to db"
+					},
+					"response": []
+				},
+				{
+					"name": "delete a student by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/student/5fcce2bc4a119f5e819f1a05",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"student",
+								"5fcce2bc4a119f5e819f1a05"
+							]
+						},
+						"description": "delete a student by id"
+					},
+					"response": []
+				},
+				{
+					"name": "get a student by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/student/5fccdd0fab077828126ccd0a",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"student",
+								"5fccdd0fab077828126ccd0a"
+							]
+						},
+						"description": "get a student by id from db"
+					},
+					"response": []
+				},
+				{
+					"name": "update a workshop by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"Hans Meier\",\n    \"email\": \"max_mainer@uni.com\",\n    \"course_of_study\": \"Mechanical Engineering\",\n    \"year\": 5\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/student/5fccdd0fab077828126ccd0a",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"student",
+								"5fccdd0fab077828126ccd0a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate groups from participant list",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"firstname\": \"string\",\r\n    \"lastname\": \"string\",\r\n    \"mail\": \"string\"\r\n  },\r\n  {\r\n    \"firstname\": \"string\",\r\n    \"lastname\": \"string\",\r\n    \"mail\": \"string\"\r\n  }\r\n]"
+						},
+						"url": {
+							"raw": "localhost:8000/gen_group/?num_groups=3&algorithm=Algo1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"gen_group",
+								""
+							],
+							"query": [
+								{
+									"key": "num_groups",
+									"value": "3"
+								},
+								{
+									"key": "algorithm",
+									"value": "Algo1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

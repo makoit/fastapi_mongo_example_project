@@ -1,0 +1,30 @@
+version: "3.1"
+
+#declared volume (name and binded volume)
+volumes:
+  mongo_data:
+
+services:
+  # main app
+  backend_app:
+    build: ./src/
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./backend_app:/backend_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+
+  # MongoDB as service
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      #normally it is not good to hard code these values -> option: load these from OS env
+      MONGO_INITDB_ROOT_USERNAME: "base_user"
+      MONGO_INITDB_ROOT_PASSWORD: "4dm1n4dm1n"
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"

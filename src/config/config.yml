@@ -1,0 +1,15 @@
+# file to store actual configuration of application
+
+# mvp_backend/backend_app/config/config.yml
+fastapi: #log level debug
+  debug: true
+
+databases:
+  default:
+    ENGINE: "mongodb"
+    DRIVER: "motor"
+    NAME: "backend_db"
+    USER: "base_user"
+    PASSWORD: "4dm1n4dm1n"
+    HOST: "mongo"
+    PORT: 27017
