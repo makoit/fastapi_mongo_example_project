@@ -68,3 +68,5 @@ docker-compose down && docker-compose up
 - add custom exceptions for db access -> exception handling chais
 - update and integrate standard model for api response and error response
 - add auth functionality with jwt
+- app config and credentials non in plain text
+- add https

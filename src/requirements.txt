@@ -1,4 +1,4 @@
 # requirements.txt
 
-fastapi[all]==0.61.1
-motor==2.0.0
+fastapi[all]==0.62.0
+motor==2.3.0
