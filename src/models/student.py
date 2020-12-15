@@ -7,7 +7,7 @@ from datetime import datetime
 class StudentModel(BaseModel):
     """[summary]
         Base user model.
-        
+
         [description]
         Used to for user attributes.
     """
@@ -16,7 +16,7 @@ class StudentModel(BaseModel):
     email: EmailStr = Field(...)
     course_of_study: str = Field(...)
     year: int = Field(...)
-    
+
     class Config:
         schema_extra = {
             "example": {
@@ -31,7 +31,7 @@ class StudentModel(BaseModel):
 class UpdateStudentModel(BaseModel):
     """[summary]
         Model to update user.
-        
+
         [description]
         Used to update user attributes.
     """
@@ -40,7 +40,6 @@ class UpdateStudentModel(BaseModel):
     email: Optional[EmailStr]
     course_of_study: Optional[str]
     year: Optional[int]
-
 
     class Config:
         schema_extra = {
@@ -51,20 +50,3 @@ class UpdateStudentModel(BaseModel):
                 "year": 4
             }
         }
-
-
-def ResponseModel(data, message):
-    return {
-        "data": [
-            data
-        ],
-        "code": 200,
-        "message": message,
-    }
-
-def ErrorResponseModel(error, code, message):
-    return {
-        "error": error,
-        "code": code,
-        "message": message
-    }

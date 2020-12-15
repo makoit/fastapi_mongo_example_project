@@ -55,6 +55,14 @@ docker-compose down && docker-compose up
 
 ---
 
+## Static typing checks with mypy
+
+e.g. :
+
+```sh
+python -m mypy main.py
+```
+
 ## important dependencies (libs)
 
 - [fastapi](https://fastapi.tiangolo.com/)
