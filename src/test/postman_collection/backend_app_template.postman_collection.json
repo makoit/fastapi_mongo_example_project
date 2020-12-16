@@ -43,7 +43,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"fullname\": \"Max Mustermann\",\r\n  \"email\": \"max-muster@uni.com\",\r\n  \"course_of_study\": \"IT\",\r\n  \"year\": 2\r\n}"
+							"raw": "{\r\n  \"fullname\": \"Test Mustermann\",\r\n  \"email\": \"max-muster@uni.com\",\r\n  \"course_of_study\": \"IT\",\r\n  \"year\": 5\r\n}"
 						},
 						"url": {
 							"raw": "localhost:8000/student/",
@@ -77,14 +77,14 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "localhost:8000/student/5fcce2bc4a119f5e819f1a05",
+							"raw": "localhost:8000/student/5fd8f33383811b5d140c0a51",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
 								"student",
-								"5fcce2bc4a119f5e819f1a05"
+								"5fd8f33383811b5d140c0a51"
 							]
 						},
 						"description": "delete a student by id"
@@ -97,14 +97,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/student/5fccdd0fab077828126ccd0a",
+							"raw": "localhost:8000/student/5fce235b26d366d9781cddd3",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
 								"student",
-								"5fccdd0fab077828126ccd0a"
+								"5fce235b26d366d9781cddd3"
 							]
 						},
 						"description": "get a student by id from db"
@@ -112,7 +112,7 @@
 					"response": []
 				},
 				{
-					"name": "update a workshop by id",
+					"name": "update a student by id",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -125,17 +125,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"fullname\": \"Hans Meier\",\n    \"email\": \"max_mainer@uni.com\",\n    \"course_of_study\": \"Mechanical Engineering\",\n    \"year\": 5\n}"
+							"raw": "    {\n        \"fullname\": \"Peter hfgh\",\n        \"email\": \"max_mainer@uni.com\",\n        \"course_of_study\": \"Mechanical Engineering\",\n        \"year\": 5\n    }"
 						},
 						"url": {
-							"raw": "localhost:8000/student/5fccdd0fab077828126ccd0a",
+							"raw": "localhost:8000/student/5fce235b26d366d9781cddd3",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
 								"student",
-								"5fccdd0fab077828126ccd0a"
+								"5fce235b26d366d9781cddd3"
 							]
 						}
 					},
@@ -176,6 +176,34 @@
 									"key": "algorithm",
 									"value": "Algo1"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "partial update student by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sdfsdf@uni.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/student/5fce235b26d366d9781cddd3",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"student",
+								"5fce235b26d366d9781cddd3"
 							]
 						}
 					},

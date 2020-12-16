@@ -1,12 +1,17 @@
-#imports
+# imports
 from motor.motor_asyncio import AsyncIOMotorClient
 import yaml
 
-#read config file
+# read config file
+
+
 def load_config() -> dict:
-    with open('config/config.yml') as yaml_file:
-        conf = yaml.load(yaml_file.read(), Loader=yaml.SafeLoader)
-    return conf
+    try:
+        with open('config/config.yml') as (yaml_file):
+            conf = yaml.load(yaml_file.read(), Loader=yaml.SafeLoader)
+        return conf
+    except OSError as e:
+        print(e)
 
 
 CONF = load_config()

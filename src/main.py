@@ -7,8 +7,8 @@ from config import config
 from routes.student_db_router import db_student_router
 
 
-#create app instance
-app = FastAPI(    
+# create app instance
+app = FastAPI(
     title="API documentation for app",
     description="This documentation defines how to access REST API of app",
     version="1.0.0",
@@ -33,13 +33,13 @@ app.add_middleware(
 # include router for db access (mongo)
 app.include_router(
     db_student_router,
-    prefix="/student",
+    prefix="/students",
     tags=["endpoints for student db"],
     responses={404: {"description": "Not found"}},
 )
 
 
-# app startup event 
+# app startup event
 @app.on_event("startup")
 async def app_startup():
     """
