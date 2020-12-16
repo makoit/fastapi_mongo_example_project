@@ -41,6 +41,9 @@ class StudentDbAccess:
 
     async def update_student(self, id: str, student_data: dict) -> Union[StudentOnDbModel, None]:
 
+        if len(student_data) < 1:
+            return None
+
         student_op = await self.database_client.student_collection.update_one(
             {"_id": ObjectId(id)}, {"$set": student_data}
         )
@@ -51,7 +54,7 @@ class StudentDbAccess:
         else:
             return None
 
-    async def create_new_student(self, student_data: StudentModel) -> Union[StudentOnDbModel, None]:
+    async def create_new_student(self, student_data: dict) -> Union[StudentOnDbModel, None]:
 
         student_op = await self.database_client.student_collection.insert_one(student_data)
 

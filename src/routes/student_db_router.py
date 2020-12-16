@@ -24,7 +24,7 @@ db_student_access = student_db_controller.StudentDbAccess()
     response_model=StudentOnDbModel,
     status_code=status.HTTP_201_CREATED
 )
-async def create_student(student: StudentModel):
+async def create_student(student: StudentModel = Body(...)):
     """[summary]
     Inserts a new student to DB.
 
@@ -89,7 +89,7 @@ async def get_student_by_id(id: str):
     response_model=StudentOnDbModel,
     status_code=status.HTTP_200_OK
 )
-async def update_student(id: str, student_data: UpdateStudentModel):
+async def update_student(id: str, student_data: StudentModel):
     """[summary]
     Update a student by id.
 

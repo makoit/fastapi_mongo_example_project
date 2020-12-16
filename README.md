@@ -73,7 +73,7 @@ python -m mypy main.py
 ## to-do's
 
 - add unit tests
-- add custom exceptions for db access -> exception handling chais
+- do not expose database ID's -> create UUID's and use them
 - update and integrate standard model for api response and error response
 - add auth functionality with jwt
 - app config and credentials non in plain text
