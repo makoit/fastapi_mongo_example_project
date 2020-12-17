@@ -74,7 +74,7 @@ python -m mypy main.py
 
 - add unit tests
 - do not expose database ID's -> create UUID's and use them
-- update and integrate standard model for api response and error response
+- API Doc -> response definition for each endpoint (404 not for each endpoint necessary)
 - add auth functionality with jwt
 - app config and credentials non in plain text
 - add https
