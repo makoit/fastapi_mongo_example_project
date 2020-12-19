@@ -13,3 +13,12 @@ databases:
     PASSWORD: "4dm1n4dm1n"
     HOST: "mongo"
     PORT: 27017
+
+api_auth:
+  token:
+    SECRET_KEY: "a24af18937f613f0f8e3fc7100ea6e222b4ba9df47732185e24d4c7fc6ae7393"
+    ALGORITHM: "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: 30
+  admin:
+    USER: "admin"
+    HASHED_PASSWORD: "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW"

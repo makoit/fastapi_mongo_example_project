@@ -6,11 +6,11 @@ from config import config
 
 # routers
 from routes.student_db_router import db_student_router
-from auth.auth import auth_router
+from routes.auth_router import auth_router
 
 # auth
 #oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-from auth.auth import get_current_active_user
+from auth.auth import validate_access_token
 
 
 # create app instance
@@ -47,7 +47,7 @@ app.include_router(
     db_student_router,
     prefix="/students",
     tags=["endpoints for student db"],
-    dependencies=[Depends(get_current_active_user)],
+    dependencies=[Depends(validate_access_token)],
     responses={404: {"description": "Not found"}},
 )
 
