@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException, status, Body
 from typing import List
 
 # student db controller
-from database import student_db_controller
+from database import student_controller
 # models
 from models.student import StudentModel, UpdateStudentModel
 from models.student_db import StudentOnDbModel
@@ -15,7 +15,7 @@ from .student_middleware import object_id_check, student_available_check
 db_student_router = APIRouter()
 
 # create instance of student controller
-db_student_access = student_db_controller.StudentDbAccess()
+db_student_access = student_controller.StudentDbAccess()
 
 
 # create new student in db

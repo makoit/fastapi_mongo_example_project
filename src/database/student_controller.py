@@ -1,6 +1,6 @@
 from bson import ObjectId
 from config.config import DB
-from .db_helper import change_id_format_to_db, change_id_format_to_basic, get_student_or_none
+from .utils import change_id_format_to_db, change_id_format_to_basic, get_student_or_none
 from typing import Union, List
 
 # models

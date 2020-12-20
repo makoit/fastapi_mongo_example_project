@@ -9,6 +9,7 @@ This template can be used as base project template if rest-api with mongo db is 
 ## project structure
 
 - src (python code)
+  - auth (authentication with OAuth2PasswordBearer)
   - config (app configs)
   - database (mongo db access)
   - models (data models -> DTOs, DAOs)
@@ -55,9 +56,21 @@ docker-compose down && docker-compose up
 
 ---
 
+## API access
+
+- api uses oauth2 password schema
+- get access token (bearer) via token route with username and password
+- actual only admin user
+  - inital username: admin
+  - inital password: admin
+- can be changed in config.yml
+- password has to encrypt with bcrypt to save only hash in config.yml
+
+---
+
 ## Static typing checks with mypy
 
-e.g. :
+[mypy](https://mypy.readthedocs.io/en/stable/index.html)
 
 ```sh
 python -m mypy main.py
@@ -67,6 +80,8 @@ python -m mypy main.py
 
 - [fastapi](https://fastapi.tiangolo.com/)
 - [motor](https://motor.readthedocs.io/en/stable/)
+- [passlib](https://passlib.readthedocs.io/en/stable/)
+- [jose](https://github.com/mpdavis/python-jose)
 
 ---
 
@@ -75,6 +90,6 @@ python -m mypy main.py
 - add unit tests
 - do not expose database ID's -> create UUID's and use them
 - API Doc -> response definition for each endpoint (404 not for each endpoint necessary)
-- add auth functionality with jwt
-- app config and credentials non in plain text
+- app config and credentials non in plain text (env or hashed)
 - add https
+- add logging

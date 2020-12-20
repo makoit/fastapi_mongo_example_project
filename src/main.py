@@ -2,15 +2,13 @@
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from config import config
-#from fastapi.security import OAuth2PasswordBearer
 
 # routers
 from routes.student_db_router import db_student_router
 from routes.auth_router import auth_router
 
 # auth
-#oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-from auth.auth import validate_access_token
+from auth.jwt import validate_access_token
 
 
 # create app instance
@@ -18,7 +16,6 @@ app = FastAPI(
     title="API documentation for app",
     description="This documentation defines how to access REST API of app",
     version="1.0.0",
-    # dependencies=[Depends(oauth2_scheme)]
 )
 
 # define origins for CORS
@@ -53,18 +50,17 @@ app.include_router(
 
 
 # app startup event
-@ app.on_event("startup")
+@app.on_event("startup")
 async def app_startup():
     """
     Do tasks related to app initialization.
     """
-    config.load_config()
 
 
 # app shutdown event
-@ app.on_event("shutdown")
+@app.on_event("shutdown")
 async def app_shutdown():
     """
     Do tasks related to app termination.
     """
-    config.close_db_client()
+    config.close_db_client(config.DB)
