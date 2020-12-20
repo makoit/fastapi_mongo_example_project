@@ -1,21 +1,20 @@
-# FastApi MongoDB Project-Template
+# FastApi MongoDB Project-Template Example
 
 ## description
 
-This template can be used as base project template if rest-api with mongo db is required. Deployment is docker based.
+This template can be used as base project template if rest-api with mongo db is required. The template shows how to manage students using the rest api & mongo db. For authentication and API access the oauth2 password flow with bearer token is used.
 
 ---
 
 ## project structure
 
 - src (python code)
-  - auth (authentication with OAuth2PasswordBearer)
-  - config (app configs)
+  - auth (auth admin user, jwt handling)
+  - config (app configs based on .env file)
   - database (mongo db access)
-  - models (data models -> DTOs, DAOs)
+  - models (data models)
   - routes (api endpoints)
-  - test (postman collection, unit test)
-  - utils (helper functions)
+  - test (postman collection, unit tests)
   - Dockerfile (dockerfile for image)
   - main(.py) (entry point for app)
   - requirements(.txt) (python dependencies)
@@ -24,9 +23,27 @@ This template can be used as base project template if rest-api with mongo db is 
 
 ---
 
+## Config
+
+- `.env.example` file in config folder shows example for `.env` file
+- modify example file to your needs and change file name to .env
+- `.env` file will not be commited to your repo
+
+## API access
+
+- api uses oauth2 password schema
+- get access token (bearer) via token route with username and password
+- actual only admin user
+  - inital `username: admin`
+  - inital `password: admin`
+- can be changed in `.env`
+- password has to encrypt with bcrypt to save only hash in `.env`
+
+---
+
 ## run app
 
-Execute the commands on the same folder level where the docker-compose file is located.
+Deployment is docker based. Execute the commands on the same folder level where the docker-compose file is located.
 
 ### start app and mongo:
 
@@ -56,18 +73,6 @@ docker-compose down && docker-compose up
 
 ---
 
-## API access
-
-- api uses oauth2 password schema
-- get access token (bearer) via token route with username and password
-- actual only admin user
-  - inital username: admin
-  - inital password: admin
-- can be changed in config.yml
-- password has to encrypt with bcrypt to save only hash in config.yml
-
----
-
 ## Static typing checks with mypy
 
 [mypy](https://mypy.readthedocs.io/en/stable/index.html)
@@ -87,9 +92,15 @@ python -m mypy main.py
 
 ## to-do's
 
+- refactor auth and jwt code -> classed based
+  - config if username & password is needed or other auth methods (only api key)
+  - refactor admin access
 - add unit tests
-- do not expose database ID's -> create UUID's and use them
 - API Doc -> response definition for each endpoint (404 not for each endpoint necessary)
-- app config and credentials non in plain text (env or hashed)
+- docker-compose -> plain user & pw -> use from env file
 - add https
-- add logging
+- add logging -> debug & error Log
+- add cors config to .env file -> config, not hard coded
+- do not expose database ID's -> create UUID's and use them
+- models / routes change folder structure -> base & specific
+  - for new use cases only specific folders has to be changed

@@ -5,7 +5,7 @@ from pydantic import BaseModel
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-# compare plain password and hashed password in db
+# compare plain password and hashed password from config
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
