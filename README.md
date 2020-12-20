@@ -2,7 +2,7 @@
 
 ## description
 
-This template can be used as base project template if rest-api with mongo db is required. The template shows how to manage students using the rest api & mongo db. For authentication and API access the oauth2 password flow with bearer token is used.
+This template can be used as base project template if rest-api with mongo db is required. The template shows how to manage students using the rest api & mongo db. For authentication and API access actually the oauth2-password-flow with bearer token is used.
 
 ---
 
@@ -23,17 +23,17 @@ This template can be used as base project template if rest-api with mongo db is 
 
 ---
 
-## Config
+## app config
 
 - `.env.example` file in config folder shows example for `.env` file
 - modify example file to your needs and change file name to .env
 - `.env` file will not be commited to your repo
 
-## API access
+## api access
 
 - api uses oauth2 password schema
 - get access token (bearer) via token route with username and password
-- actual only admin user
+- actually only admin user
   - inital `username: admin`
   - inital `password: admin`
 - can be changed in `.env`
@@ -41,9 +41,9 @@ This template can be used as base project template if rest-api with mongo db is 
 
 ---
 
-## run app
+## run app local for dev
 
-Deployment is docker based. Execute the commands on the same folder level where the docker-compose file is located.
+Deployment is actually based on docker-compose for local dev. Execute the commands on the same folder level where the docker-compose file is located.
 
 ### start app and mongo:
 
@@ -67,13 +67,19 @@ docker-compose down && docker-compose up
 
 ---
 
-## API documentation
+## prod deployment
 
-- Swagger Documentation find on http://localhost:8000/docs
+- coming soon...
 
 ---
 
-## Static typing checks with mypy
+## api documentation
+
+- Swagger Documentation find local on: http://localhost:8000/docs
+
+---
+
+## static typing checks with mypy
 
 [mypy](https://mypy.readthedocs.io/en/stable/index.html)
 
@@ -104,3 +110,4 @@ python -m mypy main.py
 - do not expose database ID's -> create UUID's and use them
 - models / routes change folder structure -> base & specific
   - for new use cases only specific folders has to be changed
+- static type definitions
