@@ -1,25 +1,25 @@
 from passlib.context import CryptContext
 from pydantic import BaseModel
-
-# context to hash and verify passwords
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+from models.admin import AdminInConfig
 
 
-# compare plain password and hashed password from config
-def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
+class AuthUser:
 
+    def __init__(self):
+        # context to hash and verify passwords
+        self.pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-def get_password_hash(password):
-    return pwd_context.hash(password)
+    # compare plain password and hashed password from config
 
-# auth user
+    def verify_password(self, plain_password: str, hashed_password: str):
+        return self.pwd_context.verify(plain_password, hashed_password)
 
+    # auth user
 
-def authenticate_user(user, username: str, password: str):
+    def authenticate_user(self, user: AdminInConfig, username: str, password: str):
 
-    if user.username != username:
-        return False
-    if not verify_password(password, user.hashed_password):
-        return False
-    return user
+        if user.username != username:
+            return False
+        if not self.verify_password(password, user.hashed_password):
+            return False
+        return user

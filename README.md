@@ -33,10 +33,8 @@ This template can be used as base project template if rest-api with mongo db is 
 
 - api uses oauth2 password schema
 - get access token (bearer) via token route with username and password
-- actually only admin user
-  - inital `username: admin`
-  - inital `password: admin`
-- can be changed in `.env`
+- actually only a fix admin user is supported
+- admin user credentials can be changed in `.env` file
 - password has to encrypt with bcrypt to save only hash in `.env`
 
 ---
@@ -75,7 +73,7 @@ docker-compose down && docker-compose up
 
 ## api documentation
 
-- Swagger Documentation find local on: http://localhost:8000/docs
+- swagger documentation find in local dev env at: http://localhost:8000/docs
 
 ---
 
@@ -98,16 +96,10 @@ python -m mypy main.py
 
 ## to-do's
 
-- refactor auth and jwt code -> classed based
-  - config if username & password is needed or other auth methods (only api key)
-  - refactor admin access
 - add unit tests
 - API Doc -> response definition for each endpoint (404 not for each endpoint necessary)
-- docker-compose -> plain user & pw -> use from env file
 - add https
 - add logging -> debug & error Log
 - add cors config to .env file -> config, not hard coded
-- do not expose database ID's -> create UUID's and use them
-- models / routes change folder structure -> base & specific
   - for new use cases only specific folders has to be changed
 - static type definitions

@@ -8,8 +8,8 @@ from routes.student_db_router import db_student_router
 from routes.auth_router import auth_router
 
 # auth
-from auth.jwt import validate_access_token
-
+from auth.jwt import JWT
+jwt_helper = JWT()
 
 # create app instance
 app = FastAPI(
@@ -44,7 +44,7 @@ app.include_router(
     db_student_router,
     prefix="/students",
     tags=["endpoints for student db"],
-    dependencies=[Depends(validate_access_token)],
+    dependencies=[Depends(jwt_helper.validate_access_token)],
     responses={404: {"description": "Not found"}},
 )
 
