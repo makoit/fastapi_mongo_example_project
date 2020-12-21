@@ -1,8 +1,8 @@
-# FastApi MongoDB Project-Template Example
+# FastApi MongoDB Project Example
 
 ## description
 
-This template can be used as base project template if rest-api with mongo db is required. The template shows how to manage students using the rest api & mongo db. For authentication and API access actually the oauth2-password-flow with bearer token is used.
+This template can be used as base project template if rest-api with mongo db is required. The template shows how to manage students using the rest api & mongo db. For authentication and api access actually the oauth2-password-flow with bearer token is used.
 
 ---
 
@@ -31,7 +31,7 @@ This template can be used as base project template if rest-api with mongo db is 
 
 ## api access
 
-- api uses oauth2 password schema
+- api uses oauth2 password schema as secure access example
 - get access token (bearer) via token route with username and password
 - actually only a fix admin user is supported
 - admin user credentials can be changed in `.env` file
@@ -65,12 +65,6 @@ docker-compose down && docker-compose up
 
 ---
 
-## prod deployment
-
-- coming soon...
-
----
-
 ## api documentation
 
 - swagger documentation find in local dev env at: http://localhost:8000/docs
@@ -98,7 +92,7 @@ python -m mypy main.py
 
 - add example unit test for endpoints
 - API Doc -> response definition for each endpoint (404 not for each endpoint necessary)
-- add logging -> debug & error Log
+- add logging -> debug
 - add cors config to .env file -> config, not hard coded
   - for new use cases only specific folders has to be changed
 - check static type definitions -> refactoring
