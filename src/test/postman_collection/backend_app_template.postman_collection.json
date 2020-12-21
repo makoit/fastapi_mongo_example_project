@@ -11,18 +11,45 @@
 			"item": [
 				{
 					"name": "get all students",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwODQwODU0Mn0.rXeghPH2DiEHLEt8LZXKgNAbqFzC8NyTw9n8mqYhDGo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "localhost:8000/student/",
+							"raw": "localhost:8000/students",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"student",
-								""
+								"students"
 							]
 						},
 						"description": "get all students from db"
@@ -43,16 +70,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"fullname\": \"Test Mustermann\",\r\n  \"email\": \"max-muster@uni.com\",\r\n  \"course_of_study\": \"IT\",\r\n  \"year\": 5\r\n}"
+							"raw": "{\r\n  \"fullname\": \"545454 Mustermann\",\r\n  \"email\": \"max-muster@uni.com\",\r\n  \"course_of_study\": \"IT\",\r\n  \"year\": 5\r\n}"
 						},
 						"url": {
-							"raw": "localhost:8000/student/",
+							"raw": "localhost:8000/students/",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"student",
+								"students",
 								""
 							]
 						},
@@ -63,6 +90,16 @@
 				{
 					"name": "delete a student by id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwODQwODU0Mn0.rXeghPH2DiEHLEt8LZXKgNAbqFzC8NyTw9n8mqYhDGo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -77,13 +114,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "localhost:8000/student/5fd8f33383811b5d140c0a51",
+							"raw": "localhost:8000/students/5fd8f33383811b5d140c0a51",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"student",
+								"students",
 								"5fd8f33383811b5d140c0a51"
 							]
 						},
@@ -94,16 +131,26 @@
 				{
 					"name": "get a student by id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwODQwODU0Mn0.rXeghPH2DiEHLEt8LZXKgNAbqFzC8NyTw9n8mqYhDGo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/student/5fce235b26d366d9781cddd3",
+							"raw": "localhost:8000/students/5fce235b26d366d9781cddd3",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"student",
+								"students",
 								"5fce235b26d366d9781cddd3"
 							]
 						},
@@ -114,6 +161,16 @@
 				{
 					"name": "update a student by id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwODQwODU0Mn0.rXeghPH2DiEHLEt8LZXKgNAbqFzC8NyTw9n8mqYhDGo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -128,13 +185,13 @@
 							"raw": "    {\n        \"fullname\": \"Peter hfgh\",\n        \"email\": \"max_mainer@uni.com\",\n        \"course_of_study\": \"Mechanical Engineering\",\n        \"year\": 5\n    }"
 						},
 						"url": {
-							"raw": "localhost:8000/student/5fce235b26d366d9781cddd3",
+							"raw": "localhost:8000/students/5fce235b26d366d9781cddd3",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"student",
+								"students",
 								"5fce235b26d366d9781cddd3"
 							]
 						}
@@ -184,11 +241,21 @@
 				{
 					"name": "partial update student by id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYwODQwODU0Mn0.rXeghPH2DiEHLEt8LZXKgNAbqFzC8NyTw9n8mqYhDGo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"sdfsdf@uni.com\"\r\n}",
+							"raw": "{\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -196,14 +263,53 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/student/5fce235b26d366d9781cddd3",
+							"raw": "localhost:8000/students/5fce235b26d366d9781cddd3",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"student",
+								"students",
 								"5fce235b26d366d9781cddd3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "authentication / jwt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"token"
 							]
 						}
 					},

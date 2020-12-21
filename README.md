@@ -96,10 +96,9 @@ python -m mypy main.py
 
 ## to-do's
 
-- add unit tests
+- add example unit test for endpoints
 - API Doc -> response definition for each endpoint (404 not for each endpoint necessary)
-- add https
 - add logging -> debug & error Log
 - add cors config to .env file -> config, not hard coded
   - for new use cases only specific folders has to be changed
-- static type definitions
+- check static type definitions -> refactoring
